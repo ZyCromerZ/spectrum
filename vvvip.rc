@@ -123,9 +123,9 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/go_hispeed_load 85
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/align_windows 1
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 750000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 750
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 0
@@ -186,9 +186,9 @@ on property:persist.spectrum.profile=3
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/go_hispeed_load 85
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/align_windows 1
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 750000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 750
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
