@@ -93,8 +93,8 @@ on property:persist.spectrum.profile=0
     ## Little gov Setting
     chown system system /sys/devices/system/cpu/cpufreq/policy0/interactive/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/interactive/*
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads "70 300000:43 633600:63 902400:73 1113600:76 1401600:82 1536000:84 1747200:85 1843200:86 1939200:88 2035200:90 2131200:95 2419200:99"
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/above_hispeed_delay "0 300000:50000 633600:60000 902400:75000 1401600:80000 1843200:85000 1939200:90000 2035200:95000 2131200:100000 2419200:150000"
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads "70 300000:43 633600:42 902400:23 1113600:72 1401600:10 1536000:79 1747200:5 1843200:5 1939200:86 2035200:86 2131200:86 2227200:86 2323200:86 2419200:95"
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/above_hispeed_delay "0 300000:50000 633600:60000 902400:75000 1401600:80000 1843200:85000 1939200:90000 2035200:95000 2131200:100000 2323200:120000 2419200:150000"
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/hispeed_freq 902400
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/go_hispeed_load 65
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/align_windows 1
@@ -117,8 +117,8 @@ on property:persist.spectrum.profile=0
     ## Big gov Setting
     chonw system system /sys/devices/system/cpu/cpufreq/policy4/interactive/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/interactive/*
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/target_loads "90 300000:43 633600:62 921600:74 1113600:76 1401600:78 1747200:80 1958400:82 2150400:83 2208000:84 2304000:86 2400000:92 2496000:94 2592000:95 3072000:99"
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/above_hispeed_delay "32000 300000:50000 633600:60000 921600:75000 1401600:80000 1958400:85000 2208000:90000 2400000:95000 2592000:100000 3072000:150000"
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/target_loads "90 3300000:43 633600:45 921600:21 1113600:72 1401600:72 1747200:12 1958400:10 2150400:3 2208000:86 2304000:86 2400000:4 2496000:87 2592000:86 2726400:85 2880000:1 2918400:86 3072000:95"
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/above_hispeed_delay "32000 300000:50000 633600:60000 921600:75000 1401600:80000 1958400:85000 2208000:90000 2400000:95000 2592000:100000 2726400:110000 2918400:120000 3072000:150000"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/hispeed_freq 1401600
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/go_hispeed_load 85
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/align_windows 1
@@ -156,8 +156,8 @@ on property:persist.spectrum.profile=3
     ## Little gov Setting
     chown system system /sys/devices/system/cpu/cpufreq/policy0/interactive/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/interactive/*
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads "70 300000:43 633600:63 902400:73 1113600:76 1401600:82 1536000:84 1747200:85 1843200:86 1939200:88 2035200:90 2131200:95 2419200:99"
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/above_hispeed_delay "0 300000:50000 633600:60000 902400:75000 1401600:80000 1843200:85000 1939200:90000 2035200:95000 2131200:100000 2419200:150000"
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads "70 300000:43 633600:63 902400:73 1113600:76 1401600:82 1536000:84 1747200:85 1843200:86 1939200:88 2035200:90 2131200:92 2227200:94 2323200:96 2419200:98"
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/above_hispeed_delay "0 300000:50000 633600:60000 902400:75000 1401600:80000 1843200:85000 1939200:90000 2035200:95000 2131200:100000 2323200:120000 2419200:150000"
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/hispeed_freq 902400
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/go_hispeed_load 65
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/align_windows 1
