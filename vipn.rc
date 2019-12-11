@@ -5,12 +5,11 @@
 on property:sys.boot_completed=1
     sleep 2
     # If there is not a persist value, we need to set one
-    if [ ! -f /data/property/persist.spectrum.profile ]; then
-        setprop persist.spectrum.profile 0
-    fi
+    setprop persist.spectrum.profile 0
     # sh set vibration
     write /sys/class/timed_output/vibrator/vtg_level 1656
     setprop spectrum.support 1
+    setprop sys.display-size 3840x2160
     # chmod
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/*
@@ -23,6 +22,7 @@ on property:sys.boot_completed=1
     # chonw
     chown system system /sys/devices/system/cpu/cpufreq/policy0/*
     chown system system /sys/devices/system/cpu/cpufreq/policy4/*
+    setprop persist.spectrum.kernel kernelname
 
 # Battery
 on property:persist.spectrum.profile=2
