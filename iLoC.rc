@@ -246,7 +246,7 @@ on property:persist.spectrum.profile=3
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/interactive/*
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads "70  2131200:85 2323200:90"
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/above_hispeed_delay "0 1939200:90000 2035200:95000 2131200:100000 2323200:120000 2419200:150000"
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/hispeed_freq 902400
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/hispeed_freq 2227200
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/go_hispeed_load 65
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/align_windows 1
     write /sys/devices/system/cpu/cpufreq/policy0/interactive/min_sample_time "40000"
