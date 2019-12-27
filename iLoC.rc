@@ -50,8 +50,8 @@ on property:persist.spectrum.profile=0
     ## Little gov Setting
     chown system system /sys/devices/system/cpu/cpufreq/policy0/schedutil/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/schedutil/*
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 500
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 1800
+    write 0644 /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 500
+    write 0644 /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 1800
     ## Big gov
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor schedutil
@@ -71,8 +71,8 @@ on property:persist.spectrum.profile=0
     ## Big gov Setting
     chonw system system /sys/devices/system/cpu/cpufreq/policy4/schedutil/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/schedutil/*
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 500
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 2200
+    write 0644 /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 500
+    write 0644 /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 2200
     ## GPU
     write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 588000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
