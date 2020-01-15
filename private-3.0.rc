@@ -97,7 +97,7 @@ on property:persist.spectrum.profile=0
     write /sys/module/msm_thermal/VDD_RESTRICTION/enabled 0
 
 # Performance
-on property:persist.spectrum.profile=1
+on property:persist.spectrum.profile=10
     ## Little gov
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
@@ -173,7 +173,7 @@ on property:persist.spectrum.profile=1
     write /sys/module/msm_thermal/VDD_RESTRICTION/enabled 0
     
 # Performance
-on property:persist.spectrum.profile=10
+on property:persist.spectrum.profile=1
     ## Little gov
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
@@ -227,9 +227,9 @@ on property:persist.spectrum.profile=10
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 900000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 900
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
@@ -305,9 +305,9 @@ on property:persist.spectrum.profile=11
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 900000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 900
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
@@ -399,82 +399,6 @@ on property:persist.spectrum.profile=2
     write /sys/module/msm_thermal/VDD_RESTRICTION/enabled 1
 
 # Gaming
-on property:persist.spectrum.profile=3
-    ## Little gov
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
-    restorecon -R /sys/devices/system/cpu ## must restore after interactive
-    ## Little min freq
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq "1939200"
-    ## Little max freq
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq "2419200"
-    ## Little min info
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_min_freq
-    write /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_min_freq "1939200"
-    ## Little max info
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq
-    write /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq "2419200"
-    ## Little gov Setting
-    chown system system /sys/devices/system/cpu/cpufreq/policy0/interactive/*
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/interactive/*
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads "70  2131200:85 2323200:90"
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/above_hispeed_delay "0 1939200:90000 2035200:95000 2131200:100000 2323200:120000 2419200:150000"
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/hispeed_freq 2227200
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/go_hispeed_load 65
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/align_windows 1
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/min_sample_time "40000"
-    write /sys/devices/system/cpu/cpufreq/policy0/interactive/timer_rate "20000"
-    ## Big gov
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor interactive
-    restorecon -R /sys/devices/system/cpu ## must restore after interactive
-    ## Big min freq
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
-    write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq "2496000"
-    ## Big max freq
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
-    write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq "3072000"
-    ## Big min info
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/cpuinfo_min_freq
-    write /sys/devices/system/cpu/cpufreq/policy4/cpuinfo_min_freq "2496000"
-    ## Big max info
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/cpuinfo_max_freq
-    write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq "3072000"
-    ## Big gov Setting
-    chonw system system /sys/devices/system/cpu/cpufreq/policy4/interactive/*
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/interactive/*
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/target_loads "90 2880000:85"
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/above_hispeed_delay "32000 2592000:100000 2726400:110000 2918400:120000 3072000:150000"
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/hispeed_freq 3072000
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/go_hispeed_load 85
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/align_windows 1
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
-    write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
-    ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
-    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
-    write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
-    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
-    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
-    write /sys/class/kgsl/kgsl-3d0/throttling 0
-    ## I/O Scheduler
-    write /sys/block/mmcblk0/queue/scheduler cfq
-    write /sys/block/mmcblk1/queue/scheduler cfq
-    #thermal
-    chmod 0644 /sys/module/msm_thermal/core_control/enabled
-    chown system system /sys/module/msm_thermal/core_control/enabled
-    write /sys/module/msm_thermal/core_control/enabled 0
-    chmod 0644 /sys/module/msm_thermal/parameters/enabled 
-    chown system system /sys/module/msm_thermal/parameters/enabled 
-    write /sys/module/msm_thermal/parameters/enabled N
-    chmod 0644 /sys/module/msm_thermal/VDD_RESTRICTION/enabled
-    chown system system /sys/module/msm_thermal/VDD_RESTRICTION/enabled
-    write /sys/module/msm_thermal/VDD_RESTRICTION/enabled 0
-
-# Gaming
 on property:persist.spectrum.profile=31
     ## Little gov
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
@@ -529,9 +453,85 @@ on property:persist.spectrum.profile=31
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 900000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 900
+    write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
+    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
+    write /sys/class/kgsl/kgsl-3d0/throttling 0
+    ## I/O Scheduler
+    write /sys/block/mmcblk0/queue/scheduler cfq
+    write /sys/block/mmcblk1/queue/scheduler cfq
+    #thermal
+    chmod 0644 /sys/module/msm_thermal/core_control/enabled
+    chown system system /sys/module/msm_thermal/core_control/enabled
+    write /sys/module/msm_thermal/core_control/enabled 0
+    chmod 0644 /sys/module/msm_thermal/parameters/enabled 
+    chown system system /sys/module/msm_thermal/parameters/enabled 
+    write /sys/module/msm_thermal/parameters/enabled N
+    chmod 0644 /sys/module/msm_thermal/VDD_RESTRICTION/enabled
+    chown system system /sys/module/msm_thermal/VDD_RESTRICTION/enabled
+    write /sys/module/msm_thermal/VDD_RESTRICTION/enabled 0
+
+# Gaming
+on property:persist.spectrum.profile=3
+    ## Little gov
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
+    restorecon -R /sys/devices/system/cpu ## must restore after interactive
+    ## Little min freq
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq "1939200"
+    ## Little max freq
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq "2419200"
+    ## Little min info
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_min_freq
+    write /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_min_freq "1939200"
+    ## Little max info
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq
+    write /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_max_freq "2419200"
+    ## Little gov Setting
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/interactive/*
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/interactive/*
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads "70  2131200:85 2323200:90"
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/above_hispeed_delay "0 1939200:90000 2035200:95000 2131200:100000 2323200:120000 2419200:150000"
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/hispeed_freq 2227200
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/go_hispeed_load 65
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/align_windows 1
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/min_sample_time "40000"
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/timer_rate "20000"
+    ## Big gov
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor interactive
+    restorecon -R /sys/devices/system/cpu ## must restore after interactive
+    ## Big min freq
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq "2496000"
+    ## Big max freq
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq "3072000"
+    ## Big min info
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/cpuinfo_min_freq
+    write /sys/devices/system/cpu/cpufreq/policy4/cpuinfo_min_freq "2496000"
+    ## Big max info
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/cpuinfo_max_freq
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq "3072000"
+    ## Big gov Setting
+    chonw system system /sys/devices/system/cpu/cpufreq/policy4/interactive/*
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/interactive/*
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/target_loads "90 2880000:85"
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/above_hispeed_delay "32000 2592000:100000 2726400:110000 2918400:120000 3072000:150000"
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/hispeed_freq 3072000
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/go_hispeed_load 85
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/align_windows 1
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
+    ## GPU
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 900000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 900
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
@@ -606,9 +606,9 @@ on property:persist.spectrum.profile=4
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 900000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 900
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
