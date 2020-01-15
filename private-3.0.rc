@@ -83,8 +83,8 @@ on property:persist.spectrum.profile=0
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 0
     write /sys/class/kgsl/kgsl-3d0/throttling 1
     ## I/O Scheduler
-    write /sys/block/mmcblk0/queue/scheduler anxiety
-    write /sys/block/mmcblk1/queue/scheduler anxiety
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/mmcblk1/queue/scheduler bfq
     #thermal
     chmod 0644 /sys/module/msm_thermal/core_control/enabled
     chown system system /sys/module/msm_thermal/core_control/enabled
