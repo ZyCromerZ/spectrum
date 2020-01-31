@@ -352,3 +352,4 @@ on property:persist.spectrum.profile=1
     chmod 0644 /sys/module/msm_thermal/VDD_RESTRICTION/enabled
     chown system system /sys/module/msm_thermal/VDD_RESTRICTION/enabled
     write /sys/module/msm_thermal/VDD_RESTRICTION/enabled 0
+    
