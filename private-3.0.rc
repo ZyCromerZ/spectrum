@@ -164,12 +164,12 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 900000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 850000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 900
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 850
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
-    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
+    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 2
     write /sys/class/kgsl/kgsl-3d0/throttling 0
     ## I/O Scheduler
     write /sys/block/mmcblk0/queue/scheduler cfq
@@ -312,12 +312,12 @@ on property:persist.spectrum.profile=3
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/min_sample_time "40000"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate "20000"
     ## GPU
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 900000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 1000000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 160000000
-    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 900
+    write /sys/class/kgsl/kgsl-3d0/max_clock_mhz 1000
     write /sys/class/kgsl/kgsl-3d0/min_clock_mhz 160
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
-    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 4
+    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
     write /sys/class/kgsl/kgsl-3d0/throttling 0
     ## I/O Scheduler
     write /sys/block/mmcblk0/queue/scheduler cfq
