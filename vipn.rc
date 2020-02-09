@@ -3,14 +3,18 @@
 
 # Initialization
 on property:sys.boot_completed=1
-    # set sepctrum support
+    # sh set vibration & sepctrum support
+    write /sys/class/timed_output/vibrator/vtg_level 1856
     setprop spectrum.support 1
+    setprop sys.display-size 3840x2160
     # chmod
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/*
+    chmod 0644 /sys/block/mmcblk0/queue/*
     # chonw
     chown system system /sys/devices/system/cpu/cpufreq/policy0/*
     chown system system /sys/devices/system/cpu/cpufreq/policy4/*
+    chown system system /sys/block/mmcblk0/queue/*
     setprop persist.spectrum.kernel kernelname
     # set to balance
 on property:sys.post_boot.parsed=1
@@ -18,9 +22,11 @@ on property:sys.post_boot.parsed=1
     # chmod
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/*
+    chmod 0644 /sys/block/mmcblk0/queue/*
     # chonw
     chown system system /sys/devices/system/cpu/cpufreq/policy0/*
     chown system system /sys/devices/system/cpu/cpufreq/policy4/*
+    chown system system /sys/block/mmcblk0/queue/*
     setprop vendor.post_boot.parsed 1
 
 on property:vendor.post_boot.parsed=1
