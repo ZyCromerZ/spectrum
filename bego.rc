@@ -14,13 +14,19 @@ on property:vendor.post_boot.parsed=1
     setprop sys.display-size 3840x2160
     # for set mode spectrum
     setprop persist.spectrum.profile 0
+    # tweak thermal
+    chmod 0644 /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig "10"
+    chmod 0444 /sys/class/thermal/thermal_message/sconfig
 
 # Battery
 on property:persist.spectrum.profile=2
+    # CPU TWEAK
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 500
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 80000
+    # Shceduler TWEAK
     write /sys/block/mmcblk0/queue/scheduler anxiety
     write /sys/block/mmcblk0/queue/read_ahead 1024
     write /sys/block/mmcblk0/queue/nr_request 512
@@ -45,13 +51,19 @@ on property:persist.spectrum.profile=2
     write /sys/block/sdc/queue/rq_affinity 1
     write /sys/block/sdc/queue/add_random 1
     write /sys/block/sdc/queue/rational 1
+    # tweak thermal
+    chmod 0644 /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig "10"
+    chmod 0444 /sys/class/thermal/thermal_message/sconfig
 
 # balance
 on property:persist.spectrum.profile=0
+    # CPU TWEAK
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 25000
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 25000
+    # Shceduler TWEAK
     write /sys/block/mmcblk0/queue/scheduler cfq
     write /sys/block/mmcblk0/queue/read_ahead 2048
     write /sys/block/mmcblk0/queue/nr_request 1024
@@ -76,13 +88,19 @@ on property:persist.spectrum.profile=0
     write /sys/block/sdc/queue/rq_affinity 1
     write /sys/block/sdc/queue/add_random 1
     write /sys/block/sdc/queue/rational 0
+    # tweak thermal
+    chmod 0644 /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig "10"
+    chmod 0444 /sys/class/thermal/thermal_message/sconfig
 
 # Gaming
 on property:persist.spectrum.profile=3
+    # CPU TWEAK
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 900000
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 100
+    # Shceduler TWEAK
     write /sys/block/mmcblk0/queue/scheduler deadline
     write /sys/block/mmcblk0/queue/read_ahead 4096
     write /sys/block/mmcblk0/queue/nr_request 2048
@@ -107,13 +125,19 @@ on property:persist.spectrum.profile=3
     write /sys/block/sdc/queue/rq_affinity 2
     write /sys/block/sdc/queue/add_random 0
     write /sys/block/sdc/queue/rational 0
+    # tweak thermal
+    chmod 0644 /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig "-1"
+    chmod 0444 /sys/class/thermal/thermal_message/sconfig
 
 # Performance
 on property:persist.spectrum.profile=1
+    # CPU TWEAK
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 900000
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
+    # Shceduler TWEAK
     write /sys/block/mmcblk0/queue/scheduler deadline
     write /sys/block/mmcblk0/queue/read_ahead 4096
     write /sys/block/mmcblk0/queue/nr_request 2048
@@ -138,3 +162,7 @@ on property:persist.spectrum.profile=1
     write /sys/block/sdc/queue/rq_affinity 1
     write /sys/block/sdc/queue/add_random 0
     write /sys/block/sdc/queue/rational 0
+    # tweak thermal
+    chmod 0644 /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig "0"
+    chmod 0444 /sys/class/thermal/thermal_message/sconfig
