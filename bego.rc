@@ -6,8 +6,36 @@ on property:sys.boot_completed=1
     setprop spectrum.support 1
     setprop sys.display-size 3840x2160
     setprop persist.spectrum.kernel kernelname
-    # set to balance
+    # chmod
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/*
+    chmod 0644 /sys/block/mmcblk0/queue/*
+    chmod 0644 /sys/block/sda/queue/*
+    chmod 0644 /sys/block/sdb/queue/*
+    chmod 0644 /sys/block/sdc/queue/*
+    # chonw
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/*
+    chown system system /sys/devices/system/cpu/cpufreq/policy4/*
+    chown system system /sys/block/mmcblk0/queue/*
+    chown system system /sys/block/sda/queue/*
+    chown system system /sys/block/sdb/queue/*
+    chown system system /sys/block/sdc/queue/*
+
 on property:sys.post_boot.parsed=1
+    # chmod
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy4/*
+    chmod 0644 /sys/block/mmcblk0/queue/*
+    chmod 0644 /sys/block/sda/queue/*
+    chmod 0644 /sys/block/sdb/queue/*
+    chmod 0644 /sys/block/sdc/queue/*
+    # chonw
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/*
+    chown system system /sys/devices/system/cpu/cpufreq/policy4/*
+    chown system system /sys/block/mmcblk0/queue/*
+    chown system system /sys/block/sda/queue/*
+    chown system system /sys/block/sdb/queue/*
+    chown system system /sys/block/sdc/queue/*
     setprop vendor.post_boot.parsed 1
 
 on property:vendor.post_boot.parsed=1
@@ -22,8 +50,11 @@ on property:vendor.post_boot.parsed=1
 # Battery
 on property:persist.spectrum.profile=2
     # CPU TWEAK
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
+    restorecon -R /sys/devices/system/cpu
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 500
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 80000
     # scheduler TWEAK
@@ -59,8 +90,11 @@ on property:persist.spectrum.profile=2
 # balance
 on property:persist.spectrum.profile=0
     # CPU TWEAK
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
+    restorecon -R /sys/devices/system/cpu
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 10000
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 10000
     # scheduler TWEAK
@@ -96,8 +130,11 @@ on property:persist.spectrum.profile=0
 # Gaming
 on property:persist.spectrum.profile=3
     # CPU TWEAK
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
+    restorecon -R /sys/devices/system/cpu
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 900000
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 100
     # scheduler TWEAK
@@ -133,8 +170,11 @@ on property:persist.spectrum.profile=3
 # Performance
 on property:persist.spectrum.profile=1
     # CPU TWEAK
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+    chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
+    restorecon -R /sys/devices/system/cpu
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 900000
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
     # scheduler TWEAK
