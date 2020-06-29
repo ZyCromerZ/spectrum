@@ -1,1 +1,5 @@
-just custom spectrum profile for X01BD
+just my custom spectrum profile for 
+-> X01BD
+-> Begonia
+
+:V
