@@ -7,12 +7,12 @@ on property:sys.boot_completed=1
     setprop sys.display-size 3840x2160
     setprop persist.spectrum.kernel kernelname
     # chown
-    chown system system /sys/devices/system/cpu/cpufreq/policy0/*
-    chown system system /sys/devices/system/cpu/cpufreq/policy6/*
-    chown system system /sys/block/mmcblk0/queue/*
-    chown system system /sys/block/sda/queue/*
-    chown system system /sys/block/sdb/queue/*
-    chown system system /sys/block/sdc/queue/*
+    chown system:system /sys/devices/system/cpu/cpufreq/policy0/*
+    chown system:system /sys/devices/system/cpu/cpufreq/policy6/*
+    chown system:system /sys/block/mmcblk0/queue/*
+    chown system:system /sys/block/sda/queue/*
+    chown system:system /sys/block/sdb/queue/*
+    chown system:system /sys/block/sdc/queue/*
     # chmod
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/*
@@ -34,12 +34,12 @@ on property:sys.post_boot.parsed=1
     write /sys/class/thermal/thermal_message/sconfig 10
     chmod 0444 /sys/class/thermal/thermal_message/sconfig
     # chown
-    chown system system /sys/devices/system/cpu/cpufreq/policy0/*
-    chown system system /sys/devices/system/cpu/cpufreq/policy6/*
-    chown system system /sys/block/mmcblk0/queue/*
-    chown system system /sys/block/sda/queue/*
-    chown system system /sys/block/sdb/queue/*
-    chown system system /sys/block/sdc/queue/*
+    chown system:system /sys/devices/system/cpu/cpufreq/policy0/*
+    chown system:system /sys/devices/system/cpu/cpufreq/policy6/*
+    chown system:system /sys/block/mmcblk0/queue/*
+    chown system:system /sys/block/sda/queue/*
+    chown system:system /sys/block/sdb/queue/*
+    chown system:system /sys/block/sdc/queue/*
     # chmod
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/*
@@ -66,7 +66,7 @@ on property:persist.spectrum.profile=2
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor conservative
     restorecon -R /sys/devices/system/cpu
-    chown system system /sys/devices/system/cpu/cpufreq/conservative/*
+    chown system:system /sys/devices/system/cpu/cpufreq/conservative/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/conservative/*
     write /sys/devices/system/cpu/cpufreq/conservative/up_threshold "95"
     write /sys/devices/system/cpu/cpufreq/conservative/sampling_rate "120000"
@@ -111,7 +111,7 @@ on property:persist.spectrum.profile=0
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     restorecon -R /sys/devices/system/cpu
-    chown system system /sys/devices/system/cpu/cpufreq/schedutil/*
+    chown system:system /sys/devices/system/cpu/cpufreq/schedutil/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/schedutil/*
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us "20000"
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us "20000"
@@ -153,7 +153,7 @@ on property:persist.spectrum.profile=3
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     restorecon -R /sys/devices/system/cpu
-    chown system system /sys/devices/system/cpu/cpufreq/schedutil/*
+    chown system:system /sys/devices/system/cpu/cpufreq/schedutil/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/schedutil/*
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us "900000"
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us "100"
@@ -195,7 +195,7 @@ on property:persist.spectrum.profile=1
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     restorecon -R /sys/devices/system/cpu
-    chown system system /sys/devices/system/cpu/cpufreq/schedutil/*
+    chown system:system /sys/devices/system/cpu/cpufreq/schedutil/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/schedutil/*
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us "900000"
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us "500"
