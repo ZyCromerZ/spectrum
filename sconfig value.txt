@@ -1,0 +1,12 @@
+Thermal value,maybe
+-1 none
+2 extreme
+8 in call
+9 Games
+10 Dynamic (default)
+11 class 0 (idk)
+12 camera
+13 pubg
+14 Youtube
+15 AR & VR
+16 Games v2
