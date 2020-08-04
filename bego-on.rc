@@ -21,18 +21,14 @@ on property:sys.boot_completed=1
     chmod 0644 /sys/block/sdb/queue/*
     chmod 0644 /sys/block/sdc/queue/*
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
-    write /sys/class/thermal/thermal_message/sconfig 10
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
+     write /sys/class/thermal/thermal_message/sconfig 10
     # for set mode spectrum
     setprop persist.spectrum.profile 0
     setprop persist.spectrum.kernel kernelname
 
 on property:sys.post_boot.parsed=1
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
-    write /sys/class/thermal/thermal_message/sconfig 10
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
+     write /sys/class/thermal/thermal_message/sconfig 10
     # chown
     chown system:system /sys/devices/system/cpu/cpufreq/policy0/*
     chown system:system /sys/devices/system/cpu/cpufreq/policy6/*
@@ -54,9 +50,7 @@ on property:vendor.post_boot.parsed=1
     # for set mode spectrum
     setprop persist.spectrum.profile 0
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
-    write /sys/class/thermal/thermal_message/sconfig 10
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
+     write /sys/class/thermal/thermal_message/sconfig 10
 
 # Battery
 on property:persist.spectrum.profile=2
@@ -78,9 +72,7 @@ on property:persist.spectrum.profile=2
     write /sys/block/sda/queue/scheduler anxiety
     write /sys/block/sdc/queue/scheduler anxiety
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
-    write /sys/class/thermal/thermal_message/sconfig 10
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
+     write /sys/class/thermal/thermal_message/sconfig 10
 
 # balance
 on property:persist.spectrum.profile=0
@@ -99,9 +91,7 @@ on property:persist.spectrum.profile=0
     write /sys/block/sda/queue/scheduler cfq
     write /sys/block/sdc/queue/scheduler cfq
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
-    write /sys/class/thermal/thermal_message/sconfig 10
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
+     write /sys/class/thermal/thermal_message/sconfig 10
 
 # Gaming
 on property:persist.spectrum.profile=3
