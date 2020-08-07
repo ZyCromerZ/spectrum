@@ -4,8 +4,6 @@
 # Initialization
 on property:sys.boot_completed=1
     setprop sys.display-size 3840x2160
-    # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
     # for set mode spectrum
     setprop persist.spectrum.profile 0
     setprop persist.spectrum.kernel kernelname
@@ -21,8 +19,6 @@ on property:sys.boot_completed=1
     write /sys/block/sdc/queue/scheduler cfq
 
 on property:sys.post_boot.parsed=1
-    # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
     setprop vendor.post_boot.parsed 1
     # CPU set schedutil as default
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
@@ -39,8 +35,6 @@ on property:vendor.post_boot.parsed=1
     setprop sys.display-size 3840x2160
     # for set mode spectrum
     setprop persist.spectrum.profile 0
-    # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
     # CPU set schedutil as default
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil

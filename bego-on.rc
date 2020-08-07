@@ -5,14 +5,13 @@
 on property:sys.boot_completed=1
     setprop spectrum.support 1
     setprop sys.display-size 3840x2160
-    setprop persist.spectrum.kernel kernelname
     # chown
-    chown system:system /sys/devices/system/cpu/cpufreq/policy0/*
-    chown system:system /sys/devices/system/cpu/cpufreq/policy6/*
-    chown system:system /sys/block/mmcblk0/queue/*
-    chown system:system /sys/block/sda/queue/*
-    chown system:system /sys/block/sdb/queue/*
-    chown system:system /sys/block/sdc/queue/*
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/*
+    chown system system /sys/devices/system/cpu/cpufreq/policy6/*
+    chown system system /sys/block/mmcblk0/queue/*
+    chown system system /sys/block/sda/queue/*
+    chown system system /sys/block/sdb/queue/*
+    chown system system /sys/block/sdc/queue/*
     # chmod
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/*
@@ -21,21 +20,21 @@ on property:sys.boot_completed=1
     chmod 0644 /sys/block/sdb/queue/*
     chmod 0644 /sys/block/sdc/queue/*
     # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
+    write /sys/class/thermal/thermal_message/sconfig 10
     # for set mode spectrum
     setprop persist.spectrum.profile 0
     setprop persist.spectrum.kernel kernelname
 
 on property:sys.post_boot.parsed=1
     # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
+    write /sys/class/thermal/thermal_message/sconfig 10
     # chown
-    chown system:system /sys/devices/system/cpu/cpufreq/policy0/*
-    chown system:system /sys/devices/system/cpu/cpufreq/policy6/*
-    chown system:system /sys/block/mmcblk0/queue/*
-    chown system:system /sys/block/sda/queue/*
-    chown system:system /sys/block/sdb/queue/*
-    chown system:system /sys/block/sdc/queue/*
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/*
+    chown system system /sys/devices/system/cpu/cpufreq/policy6/*
+    chown system system /sys/block/mmcblk0/queue/*
+    chown system system /sys/block/sda/queue/*
+    chown system system /sys/block/sdb/queue/*
+    chown system system /sys/block/sdc/queue/*
     # chmod
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/*
@@ -50,7 +49,7 @@ on property:vendor.post_boot.parsed=1
     # for set mode spectrum
     setprop persist.spectrum.profile 0
     # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
+    write /sys/class/thermal/thermal_message/sconfig 10
 
 # Battery
 on property:persist.spectrum.profile=2
@@ -60,7 +59,7 @@ on property:persist.spectrum.profile=2
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor conservative
     restorecon -R /sys/devices/system/cpu
-    chown system:system /sys/devices/system/cpu/cpufreq/conservative/*
+    chown system system /sys/devices/system/cpu/cpufreq/conservative/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/conservative/*
     write /sys/devices/system/cpu/cpufreq/conservative/up_threshold "95"
     write /sys/devices/system/cpu/cpufreq/conservative/sampling_rate "120000"
@@ -72,7 +71,7 @@ on property:persist.spectrum.profile=2
     write /sys/block/sda/queue/scheduler anxiety
     write /sys/block/sdc/queue/scheduler anxiety
     # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
+    write /sys/class/thermal/thermal_message/sconfig 10
 
 # balance
 on property:persist.spectrum.profile=0
@@ -82,7 +81,7 @@ on property:persist.spectrum.profile=0
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     restorecon -R /sys/devices/system/cpu
-    chown system:system /sys/devices/system/cpu/cpufreq/schedutil/*
+    chown system system /sys/devices/system/cpu/cpufreq/schedutil/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/schedutil/*
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us "1000"
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us "1000"
@@ -91,7 +90,7 @@ on property:persist.spectrum.profile=0
     write /sys/block/sda/queue/scheduler cfq
     write /sys/block/sdc/queue/scheduler cfq
     # tweak thermal
-     write /sys/class/thermal/thermal_message/sconfig 10
+    write /sys/class/thermal/thermal_message/sconfig 10
 
 # Gaming
 on property:persist.spectrum.profile=3
@@ -101,7 +100,7 @@ on property:persist.spectrum.profile=3
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor interactive
     restorecon -R /sys/devices/system/cpu
-    chown system:system /sys/devices/system/cpu/cpufreq/interactive/*
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/interactive/*
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/target_loads "85"
     write /sys/devices/system/cpu/cpufreq/policy4/interactive/above_hispeed_delay "50000"
@@ -116,9 +115,7 @@ on property:persist.spectrum.profile=3
     write /sys/block/sda/queue/scheduler cfq
     write /sys/block/sdc/queue/scheduler cfq
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
     write /sys/class/thermal/thermal_message/sconfig 16
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
 
 # Performance
 on property:persist.spectrum.profile=1
@@ -128,7 +125,7 @@ on property:persist.spectrum.profile=1
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
     restorecon -R /sys/devices/system/cpu
-    chown system:system /sys/devices/system/cpu/cpufreq/schedutil/*
+    chown system system /sys/devices/system/cpu/cpufreq/schedutil/*
     chmod 0644 /sys/devices/system/cpu/cpufreq/schedutil/*
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us "9000"
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us "0"
@@ -137,6 +134,4 @@ on property:persist.spectrum.profile=1
     write /sys/block/sda/queue/scheduler cfq
     write /sys/block/sdc/queue/scheduler cfq
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
     write /sys/class/thermal/thermal_message/sconfig 9
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
