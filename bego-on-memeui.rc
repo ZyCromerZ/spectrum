@@ -20,38 +20,10 @@ on property:sys.boot_completed=1
     chmod 0644 /sys/block/sdb/queue/*
     chmod 0644 /sys/block/sdc/queue/*
     # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
     write /sys/class/thermal/thermal_message/sconfig 1
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
     # for set mode spectrum
     setprop persist.spectrum.profile 0
     setprop persist.spectrum.kernel kernelname
-
-on property:sys.post_boot.parsed=1
-    # tweak thermal
-    chmod 0644 /sys/class/thermal/thermal_message/sconfig
-    write /sys/class/thermal/thermal_message/sconfig 1
-    chmod 0444 /sys/class/thermal/thermal_message/sconfig
-    # chown
-    chown system system /sys/devices/system/cpu/cpufreq/policy0/*
-    chown system system /sys/devices/system/cpu/cpufreq/policy6/*
-    chown system system /sys/block/mmcblk0/queue/*
-    chown system system /sys/block/sda/queue/*
-    chown system system /sys/block/sdb/queue/*
-    chown system system /sys/block/sdc/queue/*
-    # chmod
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/*
-    chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/*
-    chmod 0644 /sys/block/mmcblk0/queue/*
-    chmod 0644 /sys/block/sda/queue/*
-    chmod 0644 /sys/block/sdb/queue/*
-    chmod 0644 /sys/block/sdc/queue/*
-    setprop vendor.post_boot.parsed 1
-
-on property:vendor.post_boot.parsed=1
-    setprop sys.display-size 3840x2160
-    # for set mode spectrum
-    setprop persist.spectrum.profile 0
 
 # Battery
 on property:persist.spectrum.profile=2
