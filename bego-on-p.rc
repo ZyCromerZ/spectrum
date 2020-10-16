@@ -22,7 +22,7 @@ on property:sys.boot_completed=1
     # tweak thermal
     write /sys/class/thermal/thermal_message/sconfig 1
     # for set mode spectrum
-    setprop persist.spectrum.profile 3
+    setprop persist.spectrum.profile 0
     setprop persist.spectrum.kernel kernelname
 
 # Battery
@@ -51,18 +51,14 @@ on property:persist.spectrum.profile=2
 on property:persist.spectrum.profile=0
     # CPU TWEAK
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
-    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor interactive
     restorecon -R /sys/devices/system/cpu
-    chown system system /sys/devices/system/cpu/cpufreq/schedutil/*
-    chmod 0644 /sys/devices/system/cpu/cpufreq/schedutil/*
-    write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us "1000"
-    write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us "1000"
     # scheduler TWEAK
-    write /sys/block/mmcblk0/queue/scheduler cfq
-    write /sys/block/sda/queue/scheduler cfq
-    write /sys/block/sdc/queue/scheduler cfq
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/sda/queue/scheduler bfq
+    write /sys/block/sdc/queue/scheduler bfq
     # tweak thermal
     write /sys/class/thermal/thermal_message/sconfig 1
 
@@ -74,20 +70,10 @@ on property:persist.spectrum.profile=3
     chmod 0644 /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor interactive
     restorecon -R /sys/devices/system/cpu
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/*
-    chmod 0644 /sys/devices/system/cpu/cpufreq/interactive/*
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "85"
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "50000"
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1796000
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 75
-    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time "40000"
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate "20000"
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack "20000"
-    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration "40000"
     # scheduler TWEAK
-    write /sys/block/mmcblk0/queue/scheduler cfq
-    write /sys/block/sda/queue/scheduler cfq
-    write /sys/block/sdc/queue/scheduler cfq
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/sda/queue/scheduler bfq
+    write /sys/block/sdc/queue/scheduler bfq
     # tweak thermal
     write /sys/class/thermal/thermal_message/sconfig 2
 
@@ -104,8 +90,8 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us "9000"
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us "0"
     # scheduler TWEAK
-    write /sys/block/mmcblk0/queue/scheduler cfq
-    write /sys/block/sda/queue/scheduler cfq
-    write /sys/block/sdc/queue/scheduler cfq
+    write /sys/block/mmcblk0/queue/scheduler bfq
+    write /sys/block/sda/queue/scheduler bfq
+    write /sys/block/sdc/queue/scheduler bfq
     # tweak thermal
     write /sys/class/thermal/thermal_message/sconfig 16
