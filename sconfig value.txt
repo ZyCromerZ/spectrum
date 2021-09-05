@@ -10,3 +10,17 @@ Thermal value,maybe
 14 Youtube
 15 AR & VR
 16 Games v2
+
+tmap from vayu:
+[0:thermal-normal.conf]
+[1:thermal-high.conf]
+[2:thermal-extreme.conf]
+[8:thermal-phone.conf]
+[9:thermal-tgame.conf]
+[10:thermal-nolimits.conf]
+[11:thermal-class0.conf]
+[12:thermal-camera.conf]
+[13:thermal-tgame.conf]
+[14:thermal-youtobe.conf]
+[15:thermal-arvr.conf]
+[16:thermal-tgame.conf]

@@ -8,3 +8,6 @@ on property:sys.boot_completed=1
     # for set mode spectrum
     setprop persist.spectrum.profile 0
     setprop persist.spectrum.kernel kernelname
+    # Report max frequency to unity tasks.
+    write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
+    write /proc/sys/kernel/sched_lib_mask_force 255
